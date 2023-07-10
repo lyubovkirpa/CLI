@@ -14,7 +14,7 @@ program
   .option("-e, --email <type>", "user email")
   .option("-p, --phone <type>", "user phone");
 
-  program.parse(process.argv);
+program.parse(process.argv);
 
 const argv = program.opts();
 
@@ -24,7 +24,7 @@ function invokeAction({ action, id, name, email, phone }) {
     case "list":
       try {
         const result = listContacts();
-        console.log(result);
+        console.table(result);
       } catch (e) {
         console.error(e);
       }
